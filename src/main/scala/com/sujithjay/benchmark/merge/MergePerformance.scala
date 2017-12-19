@@ -13,8 +13,6 @@ object MergePerformance extends Bench.LocalTime{
     size <- sizes
   } yield Tuple2((0 to (size, 2)).toList, (1 to (size, 2) ).toList)
 
-
-
   performance of "Merge" in {
     measure method "FunctionalMerge" in {
       using(lists) config (
@@ -28,12 +26,10 @@ object MergePerformance extends Bench.LocalTime{
       }
     }
   }
-  
 
   val arrays =  for {
     size <- sizes
   } yield Tuple2((0 to (size, 2)).toArray, (1 to (size, 2) ).toArray)
-
 
   performance of "Merge" in {
     measure method "ImperativeMerge" in {
@@ -48,6 +44,4 @@ object MergePerformance extends Bench.LocalTime{
       }
     }
   }
-
-
 }
